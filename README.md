@@ -14,13 +14,15 @@ For a quick read on some of the mentioned AWS services above, please see [Compon
 
 Let's imagine we:
 
-have a background worker that polls weather data over major cities via OpenWeather API and publishes the JSON to a Kinesis Firehose.
+- have a background worker that polls weather data over major cities via OpenWeather API and publishes the JSON to a Kinesis Firehose.
 
-want to query the weather data in terms of temperature, weather description, wind speed and the location over time.
+- want to query the weather data in terms of temperature, weather description, wind speed and the location over time.
 
 We can design an AWS Glue Table definition that would encapsulate this information, so our users can query this on AWS Athena.
 
 Particularly, we want to setup partitioning on this dataset as well.
+
+### OpenWeather API
 
 The [sample JSON response](https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=439d4b804bc8187953eb36d2a8c26a02) from OpenWeather API is rather rich.
 
@@ -137,7 +139,7 @@ Head to the S3 bucket after some time, and you should find the transformed data 
 
 ## Tying it all together: Query
 
-Awesome, we can now query our datasets in S3 through Athena now. This
+Awesome, we can now query our datasets in S3 through Athena now.
 
 Head to the AWS Athena console, and select the `examples` AWS Glue database, and the `weather` table.
 
